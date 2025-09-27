@@ -21,7 +21,6 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.*;
 import com.badlogic.gdx.utils.compression.Lzma;
-import com.github.tommyettinger.textra.Font;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
@@ -33,8 +32,7 @@ import static com.badlogic.gdx.math.MathUtils.round;
 
 /**
  * A utility class for loading {@link BitmapFont} instances from Structured JSON files (which use .json, .dat, .ubj,
- * .json.lzma, or .ubj.lzma as their file extension). {@link Font} instances can already be loaded using
- * {@link Font#Font(FileHandle, TextureRegion, boolean) some of the constructors there}.
+ * .json.lzma, or .ubj.lzma as their file extension).
  * <br>
  * Note: While .ubj and .ubj.lzma files are supported by this on most platforms, libGDX 1.13.1 and older do not parse
  * many UBJSON files correctly on GWT. Even though .ubj.lzma is typically the format that gets the best compression
