@@ -5,13 +5,13 @@ Use FontWriter's Structured JSON fonts as libGDX BitmapFonts.
 Add this Gradle dependency to core/build.gradle in your libGDX project :
 
 ```groovy
-api "com.github.tommyettinger:bitmapfontbridge:0.0.1"
+api "com.github.tommyettinger:bitmapfontbridge:0.0.2"
 ```
 
 If you have a GWT subproject (also called `html`), add this dependency to html/build.gradle :
 
 ```groovy
-api "com.github.tommyettinger:bitmapfontbridge:0.0.1:sources"
+api "com.github.tommyettinger:bitmapfontbridge:0.0.2:sources"
 ```
 
 And also for GWT, add this line after other "inherits" lines in your `GdxDefinition.gwt.xml` file, which is somewhere
@@ -20,6 +20,9 @@ inside your html project's src/main/java folder:
 ```xml
 <inherits name="com.github.tommyettinger.bridge />
 ```
+
+BitmapFontBridge requires libGDX 1.13.1 or higher; it doesn't make use of any APIs that had breaking changes in
+libGDX 1.14.0 (or 1.13.5).
 
 ## Why?
 [FontWriter](https://github.com/tommyettinger/fontwriter) produces high-quality bitmap fonts that tend not to need any
@@ -40,6 +43,11 @@ class that can extract any file compressed by libGDX's `Lzma` tool to a differen
 You can directly load a BitmapFont using `BitmapFontSupport` here, or replace your usages of scene2d.ui `Skin` with this
 library's `JsonSkin`, which can load the same files but is also able to make sense of Structured JSON fonts, as well as
 the existing .fnt format. You can use `JsonSkinLoader` with an `AssetManager`, also.
+
+## Changes
+Version 0.0.2 makes sure BitmapFonts are scaled according to their cap height, rather than their line height as before.
+This matches the behavior of BitmapFonts loaded from a Skin with built-in libGDX code. This is the only change, but it
+does affect how BitmapFonts will look in your program.
 
 ## TextraTypist
 The classes in here were brought out from [TextraTypist](https://github.com/tommyettinger/textratypist) and made into
